@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" DoublePass="true" ReportInfo.Created="09/30/2024 08:11:53" ReportInfo.Modified="09/30/2024 14:07:24" ReportInfo.CreatorVersion="2024.2.0.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+using System.IO;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    private int ServerCount = 0;
+    private int TCCount = 0;
+    private int PCCount = 0;
+    private int ALLCount = 0;
+    
+    
+    private void Data1_BeforePrint (object sender, EventArgs e)
+    {
+      ServerCount = 0;
+    }
+    
+    private void Data2_BeforePrint(object sender, EventArgs e)
+    {
+      // Get the device type from the current data row
+      var deviceType = Report.GetColumnValue(&quot;DATACSV.Device Type&quot;) as string;
+
+      // Check if device type is &quot;Server&quot;
+      if (string.Equals(deviceType, &quot;Server&quot;, StringComparison.OrdinalIgnoreCase))
+      {
+        ServerCount +=1;
+        Data1.Visible = true; // Set flag to true if a Server is found
+        (sender as DataBand).Visible = true; // Show the databand
+        
+      }
+      else
+      {
+        (sender as DataBand).Visible = false; // Hide if it's not a Server
+      }
+    }
+    
+    private void Data3_BeforePrint (object sender, EventArgs e)
+    {
+      TCCount = 0;
+    }
+   
+    private void Data4_BeforePrint(object sender, EventArgs e)
+    {
+      // Get the device type from the current data row
+      var deviceType = Report.GetColumnValue(&quot;DATACSV.Device Type&quot;) as string;
+
+      // Check if device type is &quot;Server&quot;
+      if (string.Equals(deviceType, &quot;シンクライアント&quot;, StringComparison.OrdinalIgnoreCase))
+      {
+        TCCount += 1;
+        Data3.Visible = true; // Set flag to true if a Server is found
+        (sender as DataBand).Visible = true; // Show the databand
+      }
+      else
+      {
+        (sender as DataBand).Visible = false; // Hide if it's not a Server
+      }
+    }
+    
+    private void Data5_BeforePrint (object sender, EventArgs e)
+    {
+      PCCount = 0;
+    }
+
+    private void Data6_BeforePrint(object sender, EventArgs e)
+    {
+      // Get the device type from the current data row
+      var deviceType = Report.GetColumnValue(&quot;DATACSV.Device Type&quot;) as string;
+
+      // Check if device type is &quot;Server&quot;
+      if (string.Equals(deviceType, &quot;PC&quot;, StringComparison.OrdinalIgnoreCase))
+      {
+        PCCount +=1;
+        Data5.Visible = true; // Set flag to true if a Server is found
+        (sender as DataBand).Visible = true; // Show the databand
+      }
+      else
+      {
+        (sender as DataBand).Visible = false; // Hide if it's not a Server
+      }
+    }
+
+    private void Text4_BeforePrint(object sender, EventArgs e)
+    {
+      // Get the value from the specified column
+      var leaderId = Report.GetColumnValue(&quot;DATACSV.12_部門OAリーダ/Department OA Leader/资产负责人ID&quot;) as string;
+
+      // Determine the text based on the value of leaderId
+      if (string.Equals(leaderId, &quot;ADM&quot;, StringComparison.OrdinalIgnoreCase))
+      {
+        // Set the text to &quot;ADMIN&quot; if leaderId is &quot;ADM&quot;
+        (sender as TextObject).Text = &quot;ADMIN&quot;;
+      }
+      else if (string.Equals(leaderId, &quot;NX1&quot;, StringComparison.OrdinalIgnoreCase))
+      {
+        // Set the text to &quot;NEOMAX 1&quot; if leaderId is &quot;ADM&quot;
+        (sender as TextObject).Text = &quot;NEOMAX 1&quot;;
+      }
+      if (string.Equals(leaderId, &quot;NX2&quot;, StringComparison.OrdinalIgnoreCase))
+      {
+        // Set the text to &quot;ADMIN&quot; if leaderId is &quot;ADM&quot;
+        (sender as TextObject).Text = &quot;NEOMAX 2&quot;;
+      }
+      if (string.Equals(leaderId, &quot;STA&quot;, StringComparison.OrdinalIgnoreCase))
+      {
+        // Set the text to &quot;ADMIN&quot; if leaderId is &quot;ADM&quot;
+        (sender as TextObject).Text = &quot;STA-A&quot;;
+      }
+      if (string.Equals(leaderId, &quot;STP&quot;, StringComparison.OrdinalIgnoreCase))
+      {
+        // Set the text to &quot;ADMIN&quot; if leaderId is &quot;ADM&quot;
+        (sender as TextObject).Text = &quot;STA-P&quot;;
+      }
+      if (string.Equals(leaderId, &quot;TP&quot;, StringComparison.OrdinalIgnoreCase))
+      {
+        // Set the text to &quot;ADMIN&quot; if leaderId is &quot;ADM&quot;
+        (sender as TextObject).Text = &quot;THERMAL&quot;;
+      }
+    }
+    
+    private void Text16_BeforePrint(object sender, EventArgs e)
+    {
+      // Set the text to the current counter value
+      ((TextObject)sender).Text = ServerCount.ToString();
+    }
+
+    private void Text26_BeforePrint(object sender, EventArgs e)
+    {
+      // Set the text to the current counter value
+      ((TextObject)sender).Text = TCCount.ToString();
+    }
+
+    private void Text36_BeforePrint(object sender, EventArgs e)
+    {
+      // Set the text to the current counter value
+      ((TextObject)sender).Text = PCCount.ToString();
+    }
+
+    private void LST5_BeforePrint(object sender, EventArgs e)
+    {
+      // Get the value from the DATACSV.Description column
+      var originalValue = Report.GetColumnValue(&quot;DATACSV.Description&quot;) as string;
+
+      if (!string.IsNullOrEmpty(originalValue))
+      {
+        // Check if the string is longer than 5 characters
+        if (originalValue.Length &gt; 5)
+        {
+          // Get the last 5 characters
+          ((TextObject)sender).Text = originalValue.Substring(originalValue.Length - 5);
+        }
+        else
+        {
+          // If the string is 5 characters or shorter, show it as is
+          ((TextObject)sender).Text = originalValue;
+        }
+      }
+      else
+      {
+        // Optionally set to an empty string or default value if originalValue is null or empty
+        ((TextObject)sender).Text = string.Empty; // or some default text
+      }
+    }
+
+
+    private void Text47_BeforePrint(object sender, EventArgs e)
+    {
+      // Calculate the total count
+      int ALLCount = ServerCount + TCCount + PCCount;
+
+      // Set the text to the total count with a message
+      Text47.Text = &quot;Total number of hardware: &quot; + ALLCount.ToString();
+    }
+
+
+   }
+ }
+</ScriptText>
+  <Dictionary>
+    <CsvDataConnection Name="Connection" ConnectionString="rijcmlqsbU4B8zuphMxXLotw6R1jOn1s4dtsgVONm9WkxLXCSsm9hOitCZYa23i3Bpst/2QbdKf27gxQDFuMvo6zFl9VC/eDcf/FvDy6Uw8dZJN6zinMpz6Ddt+5RnfqALpyMXoU9sTvBAnJ4k/7kBkC+LjawgomUPhtApPGNi+pbPEmnrdoGFV2Ck/lNgYOZgQm9CHXyDRvRtwgaLMQwCm0Qy4p4RjOinC13j+3eVFXNS15+dkvHHbUwfpDdxMizzjMiHTKW0FsUlu9fNFPmreK7UsfQ==">
+      <TableDataSource Name="DATAfrCSV" Alias="DATACSV" DataType="System.Int32" Enabled="true" TableName="DATAfrCSV">
+        <Column Name="Device Type" DataType="System.String"/>
+        <Column Name="Asset #" DataType="System.String"/>
+        <Column Name="Device Name" DataType="System.String"/>
+        <Column Name="Manufacturer" DataType="System.String"/>
+        <Column Name="Description" DataType="System.String"/>
+        <Column Name="Asset Status" DataType="System.String"/>
+        <Column Name="E-mail" DataType="System.String"/>
+        <Column Name="04_PC分類/PC Category/PC分类" DataType="System.String"/>
+        <Column Name="01_設置場所詳細/Description of installment location/放置场所详细" DataType="System.String"/>
+        <Column Name="13_部門OAリーダ所属部署/Department OA Leader belonging section/资产负责人部门代码" DataType="System.String"/>
+        <Column Name="34_自由記入項目1/Free item 1/自由填写项目1" DataType="System.String"/>
+        <Column Name="35_自由記入項目2/Free item 2/自由填写项目2" DataType="System.String"/>
+        <Column Name="IP Address" DataType="System.String"/>
+        <Column Name="Operating System" DataType="System.String"/>
+        <Column Name="12_部門OAリーダ/Department OA Leader/资产负责人ID" DataType="System.String"/>
+      </TableDataSource>
+    </CsvDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" Watermark.Font="Arial, 60pt">
+    <PageHeaderBand Name="PageHeader1" Width="1047.06" Height="170.1">
+      <TableObject Name="Table1" Left="831.6" Width="217.35" Height="37.8" Border.Lines="All">
+        <TableColumn Name="Column1" Width="103.95"/>
+        <TableColumn Name="Column2" Width="113.4"/>
+        <TableRow Name="Row1">
+          <TableCell Name="Cell1" Border.Lines="All" Border.Width="1.5" Text="Document No." VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+          <TableCell Name="Cell2" Border.Lines="All" Border.Width="1.5" Text="I4-0002112-000" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        </TableRow>
+        <TableRow Name="Row2">
+          <TableCell Name="Cell3" Border.Lines="All" Border.Width="1.5" Text="Enforcement Date:" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+          <TableCell Name="Cell4" Border.Lines="All" Border.Width="1.5" Text="20-May-22" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        </TableRow>
+      </TableObject>
+      <TextObject Name="Text1" Width="245.7" Height="37.8" Text="San Technology Inc.&#13;&#10;ADM - Information System Section" VertAlign="Center" Font="Times New Roman, 11pt, style=Bold"/>
+      <TextObject Name="Text3" Top="75.6" Width="340.2" Height="18.9" Text="ISS INVENTORY OF COMPUTERS" VertAlign="Center" Font="Times New Roman, 11pt, style=Bold"/>
+      <TextObject Name="Text4" Top="94.5" Width="340.2" Height="18.9" BeforePrintEvent="Text4_BeforePrint" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text5" Top="113.4" Width="340.2" Height="18.9" Text="[Date]&#13;&#10;" Format="Date" Format.Format="MMMM yyyy" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      <ContainerObject Name="Container1" Top="151.2" Width="1048.95" Height="18.9" Border.Lines="Top, Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Width="2">
+        <TextObject Name="Text6" Width="37.8" Height="18.9" Border.Lines="Top, Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Width="2" Text="No." HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        <TextObject Name="Text7" Left="37.8" Width="47.25" Height="18.9" Border.Lines="Top, Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Width="2" Text="HRC&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        <TextObject Name="Text9" Left="160.65" Width="189" Height="18.9" Border.Lines="Top, Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Width="2" Text="Custodian" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        <TextObject Name="Text10" Left="349.65" Width="113.4" Height="18.9" Border.Lines="Top, Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Width="2" Text="Section" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        <TextObject Name="Text11" Left="463.05" Width="132.3" Height="18.9" Border.Lines="Top, Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Width="2" Text="Computer Location" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        <TextObject Name="Text12" Left="595.35" Width="179.55" Height="18.9" Border.Lines="Top, Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Width="2" Text="Operating System" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        <TextObject Name="Text14" Left="774.9" Width="47.25" Height="18.9" Border.Lines="Top, Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Width="2" Text="Brand" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        <TextObject Name="Text13" Left="822.15" Width="226.8" Height="18.9" Border.Lines="Top, Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Width="2" Text="Email Address" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        <TextObject Name="Text8" Left="85.05" Width="75.6" Height="18.9" Border.Lines="Top, Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Width="2" Text="Emp ID." HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      </ContainerObject>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="174.1" Width="1047.06" Height="18.9" Visible="false" BeforePrintEvent="Data1_BeforePrint">
+      <TextObject Name="Text15" Width="56.7" Height="18.9" Text="SERVER" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+    </DataBand>
+    <DataBand Name="Data2" Top="197" Width="1047.06" Height="18.9" BeforePrintEvent="Data2_BeforePrint" DataSource="DATAfrCSV">
+      <TextObject Name="Text16" Width="37.8" Height="18.9" Border.Lines="Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Style="Double" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Style="Dash" BeforePrintEvent="Text16_BeforePrint" Text="[AbsRow#]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text20" Left="463.05" Width="132.3" Height="18.9" Border.Lines="Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Style="Double" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Style="Dash" Text="[DATACSV.01_設置場所詳細/Description of installment location/放置场所详细]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text17" Left="37.8" Width="47.25" Height="18.9" Border.Lines="Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Style="Double" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Style="Dash" BeforePrintEvent="Text17_BeforePrint" Text="[DATACSV.Description]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text18" Left="160.65" Width="189" Height="18.9" Border.Lines="Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Style="Double" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Style="Dash" Text="[DATACSV.34_自由記入項目1/Free item 1/自由填写项目1]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text19" Left="349.65" Width="113.4" Height="18.9" Border.Lines="Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Style="Double" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Style="Dash" Text="[DATACSV.13_部門OAリーダ所属部署/Department OA Leader belonging section/资产负责人部门代码]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text21" Left="595.35" Width="179.55" Height="18.9" Border.Lines="Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Style="Double" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Style="Dash" Text="[DATACSV.Operating System]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text22" Left="774.9" Width="47.25" Height="18.9" Border.Lines="Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Style="Double" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Style="Dash" Text="[DATACSV.Manufacturer]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text23" Left="822.15" Width="226.8" Height="18.9" Border.Lines="Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Style="Double" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Style="Dash" Text="[DATACSV.E-mail]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text24" Left="85.05" Width="75.6" Height="18.9" Border.Lines="Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Style="Double" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Style="Dash" Text="[DATACSV.35_自由記入項目2/Free item 2/自由填写项目2]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <Sort>
+        <Sort Expression="[DATACSV.13_部門OAリーダ所属部署/Department OA Leader belonging section/资产负责人部门代码]"/>
+      </Sort>
+    </DataBand>
+    <DataBand Name="Data3" Top="219.9" Width="1047.06" Height="18.9" Border.Lines="Top" Border.TopLine.Width="2" BeforePrintEvent="Data3_BeforePrint">
+      <TextObject Name="Text25" Width="94.5" Height="18.9" Text="THIN CLIENT" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+    </DataBand>
+    <DataBand Name="Data4" Top="242.8" Width="1047.06" Height="18.9" Visible="false" BeforePrintEvent="Data4_BeforePrint" DataSource="DATAfrCSV">
+      <TextObject Name="Text26" Width="37.8" Height="18.9" Border.Lines="Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Style="Double" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Style="Dash" BeforePrintEvent="Text26_BeforePrint" Text="No." HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text27" Left="463.05" Width="132.3" Height="18.9" Border.Lines="Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Style="Double" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Style="Dash" Text="[DATACSV.01_設置場所詳細/Description of installment location/放置场所详细]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text28" Left="37.8" Width="47.25" Height="18.9" Border.Lines="Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Style="Double" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Style="Dash" BeforePrintEvent="LST5_BeforePrint" Text="[DATACSV.Description]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text29" Left="160.65" Width="189" Height="18.9" Border.Lines="Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Style="Double" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Style="Dash" Text="[DATACSV.34_自由記入項目1/Free item 1/自由填写项目1]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text30" Left="349.65" Width="113.4" Height="18.9" Border.Lines="Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Style="Double" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Style="Dash" Text="[DATACSV.13_部門OAリーダ所属部署/Department OA Leader belonging section/资产负责人部门代码]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text31" Left="595.35" Width="179.55" Height="18.9" Border.Lines="Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Style="Double" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Style="Dash" Text="[DATACSV.Operating System]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text32" Left="774.9" Width="47.25" Height="18.9" Border.Lines="Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Style="Double" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Style="Dash" Text="[DATACSV.Manufacturer]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text33" Left="822.15" Width="226.8" Height="18.9" Border.Lines="Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Style="Double" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Style="Dash" Text="[DATACSV.E-mail]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text34" Left="85.05" Width="75.6" Height="18.9" Border.Lines="Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Style="Double" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Style="Dash" Text="[DATACSV.35_自由記入項目2/Free item 2/自由填写项目2]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <Sort>
+        <Sort Expression="[DATACSV.13_部門OAリーダ所属部署/Department OA Leader belonging section/资产负责人部门代码]"/>
+      </Sort>
+    </DataBand>
+    <DataBand Name="Data5" Top="265.7" Width="1047.06" Height="18.9" Border.Lines="Top" Border.TopLine.Width="2" BeforePrintEvent="Data5_BeforePrint">
+      <TextObject Name="Text35" Width="94.5" Height="18.9" Text="WORKSTATION" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+    </DataBand>
+    <DataBand Name="Data6" Top="288.6" Width="1047.06" Height="18.9" BeforePrintEvent="Data6_BeforePrint" DataSource="DATAfrCSV">
+      <TextObject Name="Text36" Width="37.8" Height="18.9" Border.Lines="Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Style="Double" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Style="Dash" BeforePrintEvent="Text36_BeforePrint" Text="No." HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text37" Left="463.05" Width="132.3" Height="18.9" Border.Lines="Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Style="Double" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Style="Dash" Text="[DATACSV.01_設置場所詳細/Description of installment location/放置场所详细]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text38" Left="37.8" Width="47.25" Height="18.9" Border.Lines="Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Style="Double" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Style="Dash" BeforePrintEvent="LST5_BeforePrint" Text="[DATACSV.Description]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text39" Left="160.65" Width="189" Height="18.9" Border.Lines="Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Style="Double" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Style="Dash" Text="[DATACSV.34_自由記入項目1/Free item 1/自由填写项目1]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text40" Left="349.65" Width="113.4" Height="18.9" Border.Lines="Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Style="Double" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Style="Dash" Text="[DATACSV.13_部門OAリーダ所属部署/Department OA Leader belonging section/资产负责人部门代码]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text41" Left="595.35" Width="179.55" Height="18.9" Border.Lines="Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Style="Double" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Style="Dash" Text="[DATACSV.Operating System]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text42" Left="774.9" Width="47.25" Height="18.9" Border.Lines="Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Style="Double" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Style="Dash" Text="[DATACSV.Manufacturer]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text43" Left="822.15" Width="226.8" Height="18.9" Border.Lines="Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Style="Double" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Style="Dash" Text="[DATACSV.E-mail]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text44" Left="85.05" Width="75.6" Height="18.9" Border.Lines="Bottom" Border.LeftLine.Style="Double" Border.LeftLine.Width="2" Border.TopLine.Style="Double" Border.TopLine.Width="2" Border.RightLine.Style="Double" Border.RightLine.Width="2" Border.BottomLine.Style="Dash" Text="[DATACSV.35_自由記入項目2/Free item 2/自由填写项目2]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <Sort>
+        <Sort Expression="[DATACSV.13_部門OAリーダ所属部署/Department OA Leader belonging section/资产负责人部门代码]"/>
+      </Sort>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="311.5" Width="1047.06" Height="113.4" Border.Lines="Top" Border.TopLine.Width="2">
+      <TextObject Name="Text47" Width="236.25" Height="28.35" BeforePrintEvent="Text47_BeforePrint" Text="Total number of Hardware: ???" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold, Italic, Underline"/>
+      <TextObject Name="Text48" Left="727.65" Top="85.05" Width="160.65" Height="28.35" Border.Lines="Top" Border.TopLine.Width="2" Text="Prepared By:" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text49" Left="907.2" Top="85.05" Width="141.75" Height="28.35" Border.Lines="Top" Border.TopLine.Width="2" Text="Noted by:" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+    </ReportSummaryBand>
+    <PageFooterBand Name="PageFooter1" Top="428.9" Width="1047.06" Height="47.25" Border.Lines="Top" Border.TopLine.Width="2">
+      <TextObject Name="Text45" Width="189" Height="18.9" Text="Retention Period: Five (5) Years." VertAlign="Center" Font="Times New Roman, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text46" Left="859.95" Top="18.9" Width="189" Height="18.9" Text="Page [Page] of [TotalPages]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

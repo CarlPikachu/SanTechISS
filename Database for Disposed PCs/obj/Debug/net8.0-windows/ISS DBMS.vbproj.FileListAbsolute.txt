@@ -1,0 +1,78 @@
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\ISS DBMS.exe
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\ISS DBMS.deps.json
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\ISS DBMS.runtimeconfig.json
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\ISS DBMS.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\ISS DBMS.pdb
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\ClosedXML.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\DocumentFormat.OpenXml.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\ExcelNumberFormat.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\Irony.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\SixLabors.Fonts.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\XLParser.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\MySql.Data.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\MySql.Data.xml
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\obj\Debug\net8.0-windows\ISS DBMS.vbproj.AssemblyReference.cache
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\obj\Debug\net8.0-windows\Database_for_Disposed_PCs.DCD.resources
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\obj\Debug\net8.0-windows\Database_for_Disposed_PCs.DCDAoEwindow.resources
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\obj\Debug\net8.0-windows\Database_for_Disposed_PCs.LoginForm.resources
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\obj\Debug\net8.0-windows\Database_for_Disposed_PCs.MainPage.resources
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\obj\Debug\net8.0-windows\Database_for_Disposed_PCs.Resources.resources
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\obj\Debug\net8.0-windows\Database_for_Disposed_PCs.RDB.resources
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\obj\Debug\net8.0-windows\Database_for_Disposed_PCs.AddOrEditWindow.resources
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\obj\Debug\net8.0-windows\ISS DBMS.vbproj.GenerateResource.cache
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\obj\Debug\net8.0-windows\ISS DBMS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\obj\Debug\net8.0-windows\ISS DBMS.AssemblyInfoInputs.cache
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\obj\Debug\net8.0-windows\ISS DBMS.AssemblyInfo.vb
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\obj\Debug\net8.0-windows\ISS DBMS.vbproj.CoreCompileInputs.cache
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\obj\Debug\net8.0-windows\ISS DBMS.vbproj.Up2Date
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\obj\Debug\net8.0-windows\ISS DBMS.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\obj\Debug\net8.0-windows\refint\ISS DBMS.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\obj\Debug\net8.0-windows\ISS DBMS.pdb
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\obj\Debug\net8.0-windows\ISS DBMS.genruntimeconfig.cache
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\obj\Debug\net8.0-windows\ref\ISS DBMS.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\FastReport.Compat.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\FastReport.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\FastReport.OpenSource.Export.PdfSimple.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\Microsoft.CodeAnalysis.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\cs\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\de\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\es\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\fr\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\it\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\ja\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\ko\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\pl\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\pt-BR\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\ru\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\tr\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\zh-Hans\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Debug\net8.0-windows\zh-Hant\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\obj\Debug\net8.0-windows\Database_for_Disposed_PCs.Form1.resources
