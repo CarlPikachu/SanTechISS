@@ -145,6 +145,8 @@ Public Class AddOrEditWindow
         Else
             InsertData()
         End If
+
+        Me.Close()
     End Sub
 
     Private Sub ImportFromExcel(filePath As String)

@@ -53,19 +53,15 @@
           "dependencies": {
             "ClosedXML": {
               "target": "Package",
-              "version": "[0.102.3, )"
+              "version": "[0.104.2, )"
             },
             "FastReport.OpenSource": {
               "target": "Package",
-              "version": "[2024.2.14, )"
+              "version": "[2025.1.0, )"
             },
             "FastReport.OpenSource.Export.PdfSimple": {
               "target": "Package",
-              "version": "[2024.2.14, )"
-            },
-            "ModernUI": {
-              "target": "Package",
-              "version": "[2.0.0, )"
+              "version": "[2025.1.0, )"
             }
           },
           "imports": [

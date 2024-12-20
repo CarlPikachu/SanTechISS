@@ -2,7 +2,7 @@
 Imports System.Text
 
 Public Class RDB
-    Private connectionString As String = "server=localhost;user id=root;password=;database=disposedcomputers"
+    Private connectionString As String = "server=10.110.33.26;user id=Admin;password=s@nt3ch2;database=disposedcomputers"
     Private dataTable As New DataTable()
 
     ' Device details
@@ -120,9 +120,6 @@ Public Class RDB
     End Sub
 
 
-
-
-
     Public Sub ExportToExcel()
         If dataTable.Rows.Count = 0 Then
             MessageBox.Show("No data available to export.")
@@ -155,9 +152,6 @@ Public Class RDB
             MessageBox.Show("Error exporting data: " & ex.Message)
         End Try
     End Sub
-
-
-
 
 
     Private Sub ButtonExport_Click(sender As Object, e As EventArgs) Handles ButtonExport.Click
@@ -206,9 +200,9 @@ Public Class RDB
                     If reader.Read() Then
                         PopulateDeviceDetails(reader)
                         PopulateRenewalDataGrid(searchText)
-                        EnableTextBoxes() ' Enable text boxes
-                        editbtn.Enabled = True ' Enable edit button
-                        deletebtn.Enabled = True ' Enable delete button
+                        EnableTextBoxes()
+                        editbtn.Enabled = True
+                        deletebtn.Enabled = True
                     Else
                         ResetDeviceDetails()
                         DataGridView1.DataSource = Nothing
@@ -258,18 +252,39 @@ Public Class RDB
 
     Private Sub AddButton_Click(sender As Object, e As EventArgs) Handles addbtn.Click
         Dim aoe As New AddOrEditWindow(connectionString, Me) With {
-            .DarkModeEnabled = _darkModeEnabled
-        }
-        aoe.Show()
+        .DarkModeEnabled = _darkModeEnabled
+    }
+
+        AddHandler aoe.FormClosed, AddressOf OnChildFormClosed
+
+        aoe.ShowDialog()
     End Sub
 
     Private Sub EditButton_Click(sender As Object, e As EventArgs) Handles editbtn.Click
-        Dim serialNumber = SNlabel.Text
+        Dim serialNumber As String = SNlabel.Text.Trim()
+
+
+        If String.IsNullOrEmpty(serialNumber) Then
+            MessageBox.Show("Please select a serial number to edit.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
         Dim aoe As New AddOrEditWindow(connectionString, Me, serialNumber) With {
-            .DarkModeEnabled = _darkModeEnabled
-        }
-        aoe.Show()
+        .DarkModeEnabled = _darkModeEnabled
+    }
+
+
+        AddHandler aoe.FormClosed, AddressOf OnChildFormClosed
+
+        aoe.ShowDialog()
     End Sub
+
+
+    Private Sub OnChildFormClosed(sender As Object, e As FormClosedEventArgs)
+        PerformSearch()
+    End Sub
+
+
 
     Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles deletebtn.Click
         Try
@@ -482,28 +497,15 @@ Public Class RDB
 
     'email section
     Public Sub LoadDataToListBox(ListBox1 As ListBox)
-        ' Create a new MySqlConnection using the connection string
         Using connection As New MySqlConnection(connectionString)
             connection.Open()
-
-            ' SQL query to select the column from your MySQL table
             Dim query As String = "SELECT EmailAddress FROM emailrecipients"
-
-            ' Create a MySqlCommand object with the SQL query and MySqlConnection
             Using command As New MySqlCommand(query, connection)
-                ' Create a DataTable to hold the results of the SQL query
                 Dim dataTable As New DataTable()
-
-                ' Create a MySqlDataAdapter to fill the DataTable with data from the MySqlCommand
                 Using dataAdapter As New MySqlDataAdapter(command)
-                    ' Fill the DataTable with data from the MySqlCommand
                     dataAdapter.Fill(dataTable)
                 End Using
-
-                ' Clear ListBox before adding items
                 ListBox1.Items.Clear()
-
-                ' Loop through the rows in the DataTable and add the values to the ListBox
                 For Each row As DataRow In dataTable.Rows
                     ListBox1.Items.Add(row("EmailAddress").ToString())
                 Next
@@ -512,30 +514,16 @@ Public Class RDB
     End Sub
 
     Private Sub delbtneml_Click(sender As Object, e As EventArgs) Handles delbtneml.Click
-        ' Check if an item is selected in the ListBox
         If ListBox1.SelectedIndex <> -1 Then
-            ' Get the selected item
             Dim selectedEmail = ListBox1.SelectedItem.ToString
-
-            ' Create a new MySqlConnection using the connection string
             Using connection As New MySqlConnection(connectionString)
-                ' Open the database connection
                 connection.Open()
-
-                ' SQL query to delete the selected email from the table
                 Dim query = "DELETE FROM emailrecipients WHERE EmailAddress = @EmailAddress"
-
-                ' Create a MySqlCommand object with the SQL query and MySqlConnection
                 Using command As New MySqlCommand(query, connection)
-                    ' Add parameters to the query
                     command.Parameters.AddWithValue("@EmailAddress", selectedEmail)
-
-                    ' Execute the query
                     command.ExecuteNonQuery()
                 End Using
             End Using
-
-            ' Remove the selected item from the ListBox
             ListBox1.Items.Remove(selectedEmail)
         Else
             MessageBox.Show("Please select an email to delete.")
@@ -545,22 +533,12 @@ Public Class RDB
     Private Sub addButtoneml_Click(sender As Object, e As KeyPressEventArgs) Handles txtbx1.KeyPress
         If e.KeyChar = ChrW(Keys.Enter) Then
             Dim newEmail = txtbx1.Text.Trim
-
             If Not String.IsNullOrEmpty(newEmail) Then
-                ' Create a new MySqlConnection using the connection string
                 Using connection As New MySqlConnection(connectionString)
-                    ' Open the database connection
                     connection.Open()
-
-                    ' SQL query to insert the new email address into the table
                     Dim query = "INSERT INTO emailrecipients (EmailAddress) VALUES (@EmailAddress)"
-
-                    ' Create a MySqlCommand object with the SQL query and MySqlConnection
                     Using command As New MySqlCommand(query, connection)
-                        ' Add parameters to the query
                         command.Parameters.AddWithValue("@EmailAddress", newEmail)
-
-                        ' Execute the query
                         command.ExecuteNonQuery()
                     End Using
                 End Using
@@ -570,6 +548,7 @@ Public Class RDB
             End If
         End If
     End Sub
+
 
     Private Sub Msendbtn_Click(sender As Object, e As EventArgs) Handles Msendbtn.Click
         Dim currentMonth = Date.Today.Month
@@ -667,12 +646,12 @@ Public Class RDB
         Dim cellColor As Color = If(DarkModeEnabled, Color.FromArgb(85, 85, 85), Color.MistyRose)
         Dim rhColor As Color = If(DarkModeEnabled, Color.FromArgb(65, 65, 65), Color.FromArgb(176, 214, 250))
         Dim cellColor2 As Color = If(DarkModeEnabled, Color.FromArgb(85, 85, 85), Color.MistyRose)
-        Dim hlightcolor As Color = If(DarkModeEnabled, Color.FromArgb(35, 35, 35), Color.Firebrick)
+        Dim hlightcolor As Color = If(DarkModeEnabled, Color.FromArgb(35, 35, 35), Color.PowderBlue)
         Dim fontColor As Color = If(DarkModeEnabled, Color.White, Color.Black)
         Dim noteColor As Color = If(DarkModeEnabled, Color.White, Color.DarkRed)
 
         ' Update button background colors
-        UpdateControlProperties({addbtn, editbtn, actionbtn, deletebtn, deletebtn2, delbtneml, Msendbtn, clrBtn, clrBtn2}, "BackColor", btnColor)
+        UpdateControlProperties({addbtn, editbtn, actionbtn, deletebtn, deletebtn2, delbtneml, Msendbtn, clrBtn, clrBtn2, butt}, "BackColor", btnColor)
 
         ' Update label and text color
         UpdateControlProperties({
@@ -705,7 +684,8 @@ Public Class RDB
 
     Private Sub UpdateDataGridViewColors(dgv As DataGridView, backColor As Color, foreColor As Color, altBackColor As Color, headerColor As Color, selectionColor As Color)
         dgv.DefaultCellStyle.BackColor = backColor
-        dgv.DefaultCellStyle.ForeColor = foreColor
+        dgv.DefaultCellStyle.SelectionForeColor = foreColor
+        dgv.RowsDefaultCellStyle.ForeColor = foreColor
         dgv.AlternatingRowsDefaultCellStyle.BackColor = altBackColor
         dgv.ColumnHeadersDefaultCellStyle.BackColor = headerColor
         dgv.ColumnHeadersDefaultCellStyle.SelectionBackColor = headerColor

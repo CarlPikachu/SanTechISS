@@ -2,7 +2,7 @@
 
 Public Class LoginForm
 
-    Private connectionString As String = "server=localhost;user id=root;password=;database=disposedcomputers"
+    Private connectionString As String = "server=10.110.33.26;user id=Admin;password=s@nt3ch2;database=disposedcomputers"
 
     Private Sub LoginButton_Click(sender As Object, e As EventArgs) Handles LoginButton.Click
         Dim username As String = UsernameTextBox.Text
@@ -45,7 +45,7 @@ Public Class LoginForm
 
     Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PasswordTextBox.UseSystemPasswordChar = True
-        Dim connectionString As String = "server=localhost;user id=root;password=;database=disposedcomputers"
+        Dim connectionString As String = "server=10.110.33.26;user id=Admin;password=s@nt3ch2;database=disposedcomputers"
         EmailHelper.CheckAndSendRenewalEmail(connectionString)
     End Sub
 

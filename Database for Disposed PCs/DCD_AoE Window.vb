@@ -4,7 +4,7 @@ Imports MySql.Data.MySqlClient
 Public Class DCDAoEwindow
     Private ReadOnly _id As Integer
     Private ReadOnly _actionText As String
-    Private ReadOnly connectionString As String = "server=localhost;user id=root;password=;database=disposedcomputers"
+    Private ReadOnly connectionString As String = "server=10.110.33.26;user id=Admin;password=s@nt3ch2;database=disposedcomputers"
 
     Public Sub New(ByVal id As Integer,
                    ByVal controlNumber As String,
