@@ -8,18 +8,19 @@ C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin
 C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Release\net8.0-windows7.0\ISS DBMS.dll
 C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Release\net8.0-windows7.0\ISS DBMS.pdb
 C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Release\net8.0-windows7.0\ClosedXML.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Release\net8.0-windows7.0\ClosedXML.Parser.dll
 C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Release\net8.0-windows7.0\DocumentFormat.OpenXml.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Release\net8.0-windows7.0\DocumentFormat.OpenXml.Framework.dll
 C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Release\net8.0-windows7.0\ExcelNumberFormat.dll
 C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Release\net8.0-windows7.0\FastReport.Compat.dll
 C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Release\net8.0-windows7.0\FastReport.dll
 C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Release\net8.0-windows7.0\FastReport.OpenSource.Export.PdfSimple.dll
-C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Release\net8.0-windows7.0\Irony.dll
 C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Release\net8.0-windows7.0\Microsoft.CodeAnalysis.dll
 C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Release\net8.0-windows7.0\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Release\net8.0-windows7.0\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Release\net8.0-windows7.0\MetroFramework.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Release\net8.0-windows7.0\RBush.dll
 C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Release\net8.0-windows7.0\SixLabors.Fonts.dll
-C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Release\net8.0-windows7.0\XLParser.dll
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Release\net8.0-windows7.0\System.IO.Packaging.dll
 C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Release\net8.0-windows7.0\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Release\net8.0-windows7.0\de\Microsoft.CodeAnalysis.resources.dll
 C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\bin\Release\net8.0-windows7.0\es\Microsoft.CodeAnalysis.resources.dll
@@ -78,6 +79,7 @@ C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\obj
 C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\obj\Release\net8.0-windows7.0\ISS DBMS.AssemblyInfoInputs.cache
 C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\obj\Release\net8.0-windows7.0\ISS DBMS.AssemblyInfo.vb
 C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\obj\Release\net8.0-windows7.0\ISS DBMS.vbproj.CoreCompileInputs.cache
+C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\obj\Release\net8.0-windows7.0\ISS DBMS.sourcelink.json
 C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\obj\Release\net8.0-windows7.0\ISS DBMS.vbproj.Up2Date
 C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\obj\Release\net8.0-windows7.0\ISS DBMS.dll
 C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\obj\Release\net8.0-windows7.0\refint\ISS DBMS.dll

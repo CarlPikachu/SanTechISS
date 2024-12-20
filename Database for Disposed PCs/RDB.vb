@@ -651,7 +651,7 @@ Public Class RDB
         Dim noteColor As Color = If(DarkModeEnabled, Color.White, Color.DarkRed)
 
         ' Update button background colors
-        UpdateControlProperties({addbtn, editbtn, actionbtn, deletebtn, deletebtn2, delbtneml, Msendbtn, clrBtn, clrBtn2, butt}, "BackColor", btnColor)
+        UpdateControlProperties({addbtn, editbtn, actionbtn, deletebtn, deletebtn2, delbtneml, Msendbtn, clrBtn, clrBtn2, ButtonExport}, "BackColor", btnColor)
 
         ' Update label and text color
         UpdateControlProperties({

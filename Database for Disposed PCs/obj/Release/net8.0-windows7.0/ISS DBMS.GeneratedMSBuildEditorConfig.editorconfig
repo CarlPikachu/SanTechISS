@@ -17,3 +17,6 @@ build_property.RootNamespace = Database_for_Disposed_PCs
 build_property.ProjectDir = C:\Users\IS\source\repos\Database for Disposed PCs\Database for Disposed PCs\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.CsWinRTUseWindowsUIXamlProjections = false
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
