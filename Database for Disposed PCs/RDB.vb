@@ -576,23 +576,25 @@ Public Class RDB
     'Appearance and Customization
     Private _darkModeEnabled As Boolean
     Private Sub myButton_Paint(sender As Object, e As PaintEventArgs) Handles editbtn.Paint, deletebtn2.Paint, clrBtn2.Paint, deletebtn.Paint, actionbtn.Paint
-        Dim button = DirectCast(sender, Button)
+        Dim button As Button = DirectCast(sender, Button)
 
-        If button.Enabled Then Return ' Return early if enabled, no need to repaint.
+        ' Determine background color and font color based on dark mode and button state
+        Dim backgrounddisColor As Color = If(DarkModeEnabled, Color.DimGray, Color.LightCoral)
+        Dim fontColor As Brush = If(button.Enabled, Brushes.White, Brushes.Black)
 
-        ' Use DarkModeEnabled to determine background color and font color
-        Dim backgrounddisColor = If(DarkModeEnabled, Color.DimGray, Color.LightCoral)
-        e.Graphics.FillRectangle(New SolidBrush(backgrounddisColor), e.ClipRectangle) ' Draw background
+        ' Draw the background
+        e.Graphics.FillRectangle(New SolidBrush(If(button.Enabled, button.BackColor, backgrounddisColor)), e.ClipRectangle)
 
-        ' Center and wrap the text
-        Dim textLines = WrapText(button.Text, button.Font, button.Width)
-        Dim totalHeight = textLines.Sum(Function(line) e.Graphics.MeasureString(line, button.Font).Height)
-        Dim currentY = (button.Height - totalHeight) / 2
+        ' Wrap and measure text
+        Dim textLines As String() = WrapText(button.Text, button.Font, button.Width)
+        Dim totalHeight As Single = textLines.Sum(Function(line) e.Graphics.MeasureString(line, button.Font).Height)
 
-        For Each line In textLines
-            Dim textSize = e.Graphics.MeasureString(line, button.Font)
-            Dim textX = (button.Width - textSize.Width) / 2
-            e.Graphics.DrawString(line, button.Font, Brushes.DarkGray, New PointF(textX, currentY))
+        ' Draw centered text
+        Dim currentY As Single = (button.Height - totalHeight) / 2
+        For Each line As String In textLines
+            Dim textSize As SizeF = e.Graphics.MeasureString(line, button.Font)
+            Dim textX As Single = (button.Width - textSize.Width) / 2
+            e.Graphics.DrawString(line, button.Font, fontColor, New PointF(textX, currentY))
             currentY += textSize.Height
         Next
     End Sub

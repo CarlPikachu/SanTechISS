@@ -118,7 +118,7 @@ Partial Class RDB
         grpbx1.Controls.Add(TableLayoutPanel4)
         grpbx1.Controls.Add(DataGridView2)
         grpbx1.Dock = DockStyle.Left
-        grpbx1.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        grpbx1.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         grpbx1.ForeColor = Color.Black
         grpbx1.Location = New Point(0, 0)
         grpbx1.Name = "grpbx1"
@@ -131,7 +131,7 @@ Partial Class RDB
         ' 
         Label11.AutoSize = True
         Label11.BackColor = Color.LightSteelBlue
-        Label11.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        Label11.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label11.Location = New Point(20, 58)
         Label11.Name = "Label11"
         Label11.Size = New Size(50, 17)
@@ -286,7 +286,7 @@ Partial Class RDB
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        Label1.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.Location = New Point(8, 28)
         Label1.Name = "Label1"
         Label1.Size = New Size(65, 21)
@@ -386,7 +386,7 @@ Partial Class RDB
         DataGridView2.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = SystemColors.ActiveCaption
-        DataGridViewCellStyle1.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        DataGridViewCellStyle1.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         DataGridViewCellStyle1.ForeColor = Color.White
         DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
@@ -413,7 +413,7 @@ Partial Class RDB
         GroupBox3.Controls.Add(ListBox1)
         GroupBox3.Controls.Add(txtbx1)
         GroupBox3.Dock = DockStyle.Fill
-        GroupBox3.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        GroupBox3.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         GroupBox3.Location = New Point(479, 3)
         GroupBox3.Name = "GroupBox3"
         GroupBox3.Size = New Size(470, 157)
@@ -458,7 +458,7 @@ Partial Class RDB
         Label10.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Right
         Label10.AutoSize = True
         Label10.BackColor = Color.LightSteelBlue
-        Label10.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        Label10.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label10.ForeColor = Color.Black
         Label10.Location = New Point(254, 31)
         Label10.Name = "Label10"
@@ -500,7 +500,7 @@ Partial Class RDB
         DIGB.Controls.Add(SNlabel)
         DIGB.Controls.Add(TableLayoutPanel3)
         DIGB.Controls.Add(DataGridView1)
-        DIGB.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        DIGB.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         DIGB.Location = New Point(375, 0)
         DIGB.Margin = New Padding(0)
         DIGB.Name = "DIGB"
@@ -739,7 +739,7 @@ Partial Class RDB
         ' 
         Label3.AutoEllipsis = True
         Label3.AutoSize = True
-        Label3.BackColor = Color.FromArgb(176, 214, 250)
+        Label3.BackColor = Color.FromArgb(CByte(176), CByte(214), CByte(250))
         Label3.Dock = DockStyle.Fill
         Label3.Font = New Font("Segoe UI", 12F)
         Label3.ForeColor = Color.Black
@@ -755,7 +755,7 @@ Partial Class RDB
         ' 
         Label4.AutoEllipsis = True
         Label4.AutoSize = True
-        Label4.BackColor = Color.FromArgb(176, 214, 250)
+        Label4.BackColor = Color.FromArgb(CByte(176), CByte(214), CByte(250))
         Label4.Dock = DockStyle.Fill
         Label4.Font = New Font("Segoe UI", 12F)
         Label4.ForeColor = Color.Black
@@ -771,7 +771,7 @@ Partial Class RDB
         ' 
         Label12.AutoEllipsis = True
         Label12.AutoSize = True
-        Label12.BackColor = Color.FromArgb(176, 214, 250)
+        Label12.BackColor = Color.FromArgb(CByte(176), CByte(214), CByte(250))
         Label12.Dock = DockStyle.Fill
         Label12.Font = New Font("Segoe UI", 12F)
         Label12.ForeColor = Color.Black
@@ -813,7 +813,7 @@ Partial Class RDB
         ' 
         Label6.AutoEllipsis = True
         Label6.AutoSize = True
-        Label6.BackColor = Color.FromArgb(176, 214, 250)
+        Label6.BackColor = Color.FromArgb(CByte(176), CByte(214), CByte(250))
         Label6.Dock = DockStyle.Fill
         Label6.Font = New Font("Segoe UI", 12F)
         Label6.ForeColor = Color.Black
@@ -842,7 +842,7 @@ Partial Class RDB
         ' 
         Label8.AutoEllipsis = True
         Label8.AutoSize = True
-        Label8.BackColor = Color.FromArgb(176, 214, 250)
+        Label8.BackColor = Color.FromArgb(CByte(176), CByte(214), CByte(250))
         Label8.Dock = DockStyle.Fill
         Label8.Font = New Font("Segoe UI", 12F)
         Label8.ForeColor = Color.Black
@@ -858,7 +858,7 @@ Partial Class RDB
         ' 
         Label2.AutoEllipsis = True
         Label2.AutoSize = True
-        Label2.BackColor = Color.FromArgb(176, 214, 250)
+        Label2.BackColor = Color.FromArgb(CByte(176), CByte(214), CByte(250))
         Label2.Dock = DockStyle.Fill
         Label2.Font = New Font("Segoe UI", 12F)
         Label2.ForeColor = Color.Black
@@ -887,7 +887,7 @@ Partial Class RDB
         ' 
         Label5.AutoEllipsis = True
         Label5.AutoSize = True
-        Label5.BackColor = Color.FromArgb(176, 214, 250)
+        Label5.BackColor = Color.FromArgb(CByte(176), CByte(214), CByte(250))
         Label5.Dock = DockStyle.Fill
         Label5.Font = New Font("Segoe UI", 12F)
         Label5.ForeColor = Color.Black
@@ -927,7 +927,7 @@ Partial Class RDB
         ' 
         Label7.AutoEllipsis = True
         Label7.AutoSize = True
-        Label7.BackColor = Color.FromArgb(176, 214, 250)
+        Label7.BackColor = Color.FromArgb(CByte(176), CByte(214), CByte(250))
         Label7.Dock = DockStyle.Fill
         Label7.Font = New Font("Segoe UI", 12F)
         Label7.ForeColor = Color.Black
@@ -962,7 +962,7 @@ Partial Class RDB
         DataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle2.BackColor = SystemColors.Control
-        DataGridViewCellStyle2.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        DataGridViewCellStyle2.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         DataGridViewCellStyle2.ForeColor = Color.White
         DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
@@ -989,7 +989,7 @@ Partial Class RDB
         GroupBox1.BackColor = Color.LightSteelBlue
         GroupBox1.Controls.Add(TableLayoutPanel6)
         GroupBox1.Dock = DockStyle.Fill
-        GroupBox1.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        GroupBox1.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         GroupBox1.Location = New Point(3, 3)
         GroupBox1.Name = "GroupBox1"
         GroupBox1.Size = New Size(470, 157)
@@ -1093,7 +1093,7 @@ Partial Class RDB
         ' 
         actlabel.AutoSize = True
         actlabel.Dock = DockStyle.Fill
-        actlabel.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        actlabel.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         actlabel.Location = New Point(215, 31)
         actlabel.Name = "actlabel"
         actlabel.Size = New Size(200, 25)
@@ -1104,7 +1104,7 @@ Partial Class RDB
         ' 
         inactlabel.AutoSize = True
         inactlabel.Dock = DockStyle.Fill
-        inactlabel.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        inactlabel.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         inactlabel.Location = New Point(215, 59)
         inactlabel.Name = "inactlabel"
         inactlabel.Size = New Size(200, 25)
@@ -1115,7 +1115,7 @@ Partial Class RDB
         ' 
         mrlabel.AutoSize = True
         mrlabel.Dock = DockStyle.Fill
-        mrlabel.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        mrlabel.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         mrlabel.Location = New Point(215, 87)
         mrlabel.Name = "mrlabel"
         mrlabel.Size = New Size(200, 28)
@@ -1126,7 +1126,7 @@ Partial Class RDB
         ' 
         totalrdlabel.AutoSize = True
         totalrdlabel.Dock = DockStyle.Fill
-        totalrdlabel.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        totalrdlabel.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         totalrdlabel.Location = New Point(215, 3)
         totalrdlabel.Name = "totalrdlabel"
         totalrdlabel.Size = New Size(200, 25)

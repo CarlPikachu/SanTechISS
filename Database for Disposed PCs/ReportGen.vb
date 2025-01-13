@@ -194,14 +194,12 @@ Public Class ReportGen
     Private Sub myButton_Paint(sender As Object, e As PaintEventArgs) Handles btnUpload.Paint
         Dim button As Button = DirectCast(sender, Button)
 
-        ' Return if the button is enabled
-        If button.Enabled Then Return
-
-        ' Determine background color and font color based on dark mode
+        ' Determine background color and font color based on dark mode and button state
         Dim backgrounddisColor As Color = If(DarkModeEnabled, Color.DimGray, Color.LightCoral)
+        Dim fontColor As Brush = If(button.Enabled, Brushes.White, Brushes.Black)
 
         ' Draw the background
-        e.Graphics.FillRectangle(New SolidBrush(backgrounddisColor), e.ClipRectangle)
+        e.Graphics.FillRectangle(New SolidBrush(If(button.Enabled, button.BackColor, backgrounddisColor)), e.ClipRectangle)
 
         ' Wrap and measure text
         Dim textLines As String() = WrapText(button.Text, button.Font, button.Width)
@@ -212,7 +210,7 @@ Public Class ReportGen
         For Each line As String In textLines
             Dim textSize As SizeF = e.Graphics.MeasureString(line, button.Font)
             Dim textX As Single = (button.Width - textSize.Width) / 2
-            e.Graphics.DrawString(line, button.Font, Brushes.DarkGray, New PointF(textX, currentY))
+            e.Graphics.DrawString(line, button.Font, fontColor, New PointF(textX, currentY))
             currentY += textSize.Height
         Next
     End Sub

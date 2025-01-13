@@ -16,7 +16,7 @@ Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("ISS DBMS"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b454f2f01cd1d4f2353a1ec0c64170122640c235"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f116bc25d624603c06cfc0c1a0c6ce41ab1c380f"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("ISS DBMS"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("ISS DBMS"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0"),  _
