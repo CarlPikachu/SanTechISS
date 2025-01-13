@@ -1,0 +1,497 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" DoublePass="true" UseFileCache="true" ReportInfo.Created="10/01/2024 09:01:24" ReportInfo.Modified="10/03/2024 08:13:02" ReportInfo.CreatorVersion="2024.2.0.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void Text21_AFTERPrint(object sender, EventArgs e)
+    {
+      // Get the value from the specified column
+      var leaderId = Report.GetColumnValue(&quot;DATACSV.12_部門OAリーダ/Department OA Leader/资产负责人ID&quot;) as string;
+
+      // Determine the text based on the value of leaderId
+      if (string.Equals(leaderId, &quot;ADM&quot;, StringComparison.OrdinalIgnoreCase))
+      {
+        // Set the text to &quot;ADMIN&quot; if leaderId is &quot;ADM&quot;
+        (sender as TextObject).Text = &quot;ADMIN&quot;;
+      }
+      else if (string.Equals(leaderId, &quot;NX1&quot;, StringComparison.OrdinalIgnoreCase))
+      {
+        // Set the text to &quot;NEOMAX 1&quot; if leaderId is &quot;ADM&quot;
+        (sender as TextObject).Text = &quot;NEOMAX 1&quot;;
+      }
+      if (string.Equals(leaderId, &quot;NX2&quot;, StringComparison.OrdinalIgnoreCase))
+      {
+        // Set the text to &quot;ADMIN&quot; if leaderId is &quot;ADM&quot;
+        (sender as TextObject).Text = &quot;NEOMAX 2&quot;;
+      }
+      if (string.Equals(leaderId, &quot;STA&quot;, StringComparison.OrdinalIgnoreCase))
+      {
+        // Set the text to &quot;ADMIN&quot; if leaderId is &quot;ADM&quot;
+        (sender as TextObject).Text = &quot;STA-A&quot;;
+      }
+      if (string.Equals(leaderId, &quot;STP&quot;, StringComparison.OrdinalIgnoreCase))
+      {
+        // Set the text to &quot;ADMIN&quot; if leaderId is &quot;ADM&quot;
+        (sender as TextObject).Text = &quot;STA-P&quot;;
+      }
+      if (string.Equals(leaderId, &quot;TP&quot;, StringComparison.OrdinalIgnoreCase))
+      {
+        // Set the text to &quot;ADMIN&quot; if leaderId is &quot;ADM&quot;
+        (sender as TextObject).Text = &quot;THERMAL&quot;;
+      }      }
+    }
+
+  
+}
+</ScriptText>
+  <Dictionary>
+    <CsvDataConnection Name="Connection" ConnectionString="rijcmlqQ+J8Yvp8alZ3jBOlNvJ0St4i/QxGvJP4p4ICPaLL5W1CBBxyuOrOJeq+54F3qO0amfa4Lvts/SB9XU9gv/4G3D/BW6APyMBYZWk5gDqKn/N5N7O8VbgwdYrtiNONwkk04LZBB3E2bUEFIS1qid7ZXgDI+lG+A/bBbzbNqm4GACIwQDrTccM3r0NotAmS99EmCewVEg2quXeZCTqOQm5vXzbCLIDoz3CIBB0GO/opkVIRIJnOCI44deB1SQC+rDwgSR1K0LywJI46DqUNITlThDrwylzr/qDCckOIMHcVxhb/voB1DAJRC5oZIx/isjr7">
+      <TableDataSource Name="Export_Hardware_Assets (3)" Alias="DATACSV" DataType="System.Int32" Enabled="true" TableName="Export_Hardware_Assets (3)">
+        <Column Name="Device Type" DataType="System.String"/>
+        <Column Name="Asset #" DataType="System.String"/>
+        <Column Name="Device Name" DataType="System.String"/>
+        <Column Name="Manufacturer" DataType="System.String"/>
+        <Column Name="Description" DataType="System.String"/>
+        <Column Name="Asset Status" DataType="System.String"/>
+        <Column Name="E-mail" DataType="System.String"/>
+        <Column Name="04_PC分類/PC Category/PC分类" DataType="System.String"/>
+        <Column Name="01_設置場所詳細/Description of installment location/放置场所详细" DataType="System.String"/>
+        <Column Name="12_部門OAリーダ/Department OA Leader/资产负责人ID" DataType="System.String"/>
+        <Column Name="13_部門OAリーダ所属部署/Department OA Leader belonging section/资产负责人部门代码" DataType="System.String"/>
+        <Column Name="34_自由記入項目1/Free item 1/自由填写项目1" DataType="System.String"/>
+        <Column Name="35_自由記入項目2/Free item 2/自由填写项目2" DataType="System.String"/>
+        <Column Name="IP Address" DataType="System.String"/>
+        <Column Name="Operating System" DataType="System.String"/>
+      </TableDataSource>
+    </CsvDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" Watermark.Font="Arial, 60pt">
+    <PageHeaderBand Name="PageHeader1" Width="756" Height="85.05">
+      <TextObject Name="Text1" Width="283.5" Height="37.8" Text="San Technology Inc.&#13;&#10;ADM - Information System Section" Font="Times New Roman, 11pt, style=Bold"/>
+      <TableObject Name="Table1" Left="557.55" Width="198.45" Height="37.8">
+        <TableColumn Name="Column1" Width="94.5"/>
+        <TableColumn Name="Column2" Width="103.95"/>
+        <TableRow Name="Row1">
+          <TableCell Name="Cell1" Border.Lines="All" Border.Width="2" Text="Document No.:" Font="Times New Roman, 8pt, style=Bold"/>
+          <TableCell Name="Cell2" Border.Lines="All" Border.Width="2" Text="I4-0002109-000" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        </TableRow>
+        <TableRow Name="Row2">
+          <TableCell Name="Cell6" Border.Lines="All" Border.Width="2" Text="Enforcement Date" Font="Times New Roman, 8pt, style=Bold"/>
+          <TableCell Name="Cell4" Border.Lines="All" Border.Width="2" Text="20-May-22" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        </TableRow>
+      </TableObject>
+      <TextObject Name="Text2" Left="113.4" Top="47.25" Width="491.4" Height="28.35" Text="HARDWARE AND SOFTWARE MAINTENANCE CHECKSHEET" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 11pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="89.05" Width="756" Height="973.35" DataSource="Export_Hardware_Assets (3)">
+      <ContainerObject Name="Container1" Width="756" Height="973.35" Border.Lines="All" Border.Width="2">
+        <TextObject Name="Text8" Left="9.45" Top="41.58" Width="362.88" Height="28.35" Border.Lines="All" Border.Width="2" Text="Name: [DATACSV.34_自由記入項目1/Free item 1/自由填写项目1]" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+        <TextObject Name="Text10" Left="9.45" Top="73.71" Width="362.88" Height="28.35" Border.Lines="All" Border.Width="2" Text="ISS Control No.: [DATACSV.Description]" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+        <TableObject Name="Table2" Left="380.65" Top="41.58" Width="362.88" Height="60.86" Border.Lines="All" Border.Width="2">
+          <TableColumn Name="Column3" Width="362.88"/>
+          <TableRow Name="Row3" Height="30.43">
+            <TableCell Name="Cell8" Text="Computer Description:" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+          </TableRow>
+          <TableRow Name="Row4" Height="30.43">
+            <TableCell Name="Cell13" Text="  [DATACSV.04_PC分類/PC Category/PC分类], [DATACSV.Manufacturer], [DATACSV.Operating System]" Font="Times New Roman, 10pt, style=Bold"/>
+          </TableRow>
+        </TableObject>
+        <TableObject Name="Table3" Left="9.45" Top="105.84" Width="362.88" Height="28.35" Border.Lines="All" Border.Width="2" Fill.Color="Gainsboro">
+          <TableColumn Name="Column4" Width="139.86"/>
+          <TableColumn Name="Column5" Width="83.16"/>
+          <TableColumn Name="Column6" Width="139.86"/>
+          <TableRow Name="Row5" Height="28.35">
+            <TableCell Name="Cell14" Border.Lines="All" Text="Hardware Component" HorzAlign="Center" VertAlign="Center" WordWrap="false" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell15" Border.Lines="All" Text="Status&#13;&#10;" HorzAlign="Center" Font="Times New Roman, 10pt, style=Bold">
+              <TextObject Name="Text11" Left="5.67" Top="9.45" Width="66.15" Height="18.9" Text="(check if OK)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt, style=Bold"/>
+            </TableCell>
+            <TableCell Name="Cell16" Text="Remarks" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+          </TableRow>
+        </TableObject>
+        <TableObject Name="Table4" Left="380.65" Top="105.84" Width="362.88" Height="28.35" Border.Lines="All" Border.Width="2" Fill.Color="Gainsboro" PrintOnParent="true">
+          <TableColumn Name="Column7" Width="139.86"/>
+          <TableColumn Name="Column8" Width="83.16"/>
+          <TableColumn Name="Column9" Width="139.86"/>
+          <TableRow Name="Row6" Height="28.35">
+            <TableCell Name="Cell17" Border.Lines="All" Text="Hardware Component" HorzAlign="Center" VertAlign="Center" WordWrap="false" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell18" Border.Lines="All" Text="Status&#13;&#10;" HorzAlign="Center" Font="Times New Roman, 10pt, style=Bold">
+              <TextObject Name="Text12" Left="5.67" Top="9.45" Width="66.15" Height="18.9" Text="(check if OK)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt, style=Bold"/>
+            </TableCell>
+            <TableCell Name="Cell19" Text="Remarks" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+          </TableRow>
+        </TableObject>
+        <TextObject Name="Text13" Left="9.45" Top="139.1" Width="362.88" Height="28.35" Border.Lines="All" Border.Width="2" Text="Hardware Work Station" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+        <TextObject Name="Text14" Left="380.65" Top="139.1" Width="362.88" Height="28.35" Border.Lines="All" Border.Width="2" Text="Software Work Station" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+        <TableObject Name="Table5" Left="9.45" Top="170.1" Width="362.88" Height="207.9" Border.Lines="All" Border.Width="2" PrintOnParent="true">
+          <TableColumn Name="Column10" Width="139.86"/>
+          <TableColumn Name="Column11" Width="83.16"/>
+          <TableColumn Name="Column12" Width="139.86"/>
+          <TableRow Name="Row7">
+            <TableCell Name="Cell20" Border.Lines="All" Text="Monitor" VertAlign="Center" WordWrap="false" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell21" Border.Lines="All" Text="				" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell22" Border.Lines="All" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row9">
+            <TableCell Name="Cell26" Border.Lines="All" Text="Motherboard" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell27" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell28" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row10">
+            <TableCell Name="Cell29" Border.Lines="All" Text="Power Supply" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell30" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell31" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row11">
+            <TableCell Name="Cell32" Border.Lines="All" Text="Video Card" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell33" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell34" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row12">
+            <TableCell Name="Cell35" Border.Lines="All" Text="CMOS Battery" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell36" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell37" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row13">
+            <TableCell Name="Cell38" Border.Lines="All" Text="Memory" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell39" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell40" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row14">
+            <TableCell Name="Cell41" Border.Lines="All" Text="Hard Disk/Back-up Drive" Font="Times New Roman, 8pt, style=Bold"/>
+            <TableCell Name="Cell42" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell43" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row15">
+            <TableCell Name="Cell44" Border.Lines="All" Text="CD-Rom Drive" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell45" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell46" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row16">
+            <TableCell Name="Cell47" Border.Lines="All" Text="LAN Card" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell48" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell49" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row17">
+            <TableCell Name="Cell50" Border.Lines="All" Text="Mouse" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell51" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell52" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row18">
+            <TableCell Name="Cell53" Border.Lines="All" Text="Keyboard" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell54" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell55" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+        </TableObject>
+        <TableObject Name="Table6" Left="380.65" Top="170.1" Width="362.88" Height="207.9" Border.Lines="All" Border.Width="2" PrintOnParent="true">
+          <TableColumn Name="Column13" Width="139.86"/>
+          <TableColumn Name="Column14" Width="83.16"/>
+          <TableColumn Name="Column15" Width="139.86"/>
+          <TableRow Name="Row19">
+            <TableCell Name="Cell56" Border.Lines="All" Text="Post Boot - up" VertAlign="Center" WordWrap="false" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell57" Border.Lines="All" Text="				" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell58" Border.Lines="All" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row20">
+            <TableCell Name="Cell59" Border.Lines="All" Text="Anti-Virus if Updated" Font="Times New Roman, 9pt, style=Bold"/>
+            <TableCell Name="Cell60" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell61" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row21">
+            <TableCell Name="Cell62" Border.Lines="All" Text="Empty Recycle Bin" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell63" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell64" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row22">
+            <TableCell Name="Cell65" Border.Lines="All" Text="Check Installed Software" Font="Times New Roman, 8pt, style=Bold"/>
+            <TableCell Name="Cell66" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell67" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row23">
+            <TableCell Name="Cell68" Border.Lines="All" Text="OS" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell69" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell70" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row24">
+            <TableCell Name="Cell71" Border.Lines="All" Text="Office Application" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell72" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell73" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row25">
+            <TableCell Name="Cell74" Border.Lines="All" Text="Email" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell75" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell76" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row26">
+            <TableCell Name="Cell77" Border.Lines="All" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell78" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell79" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row27">
+            <TableCell Name="Cell80" Border.Lines="All" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell81" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell82" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row28">
+            <TableCell Name="Cell83" Border.Lines="All" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell84" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell85" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row29">
+            <TableCell Name="Cell86" Border.Lines="All" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell87" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell88" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+        </TableObject>
+        <TextObject Name="Text15" Left="9.45" Top="381.78" Width="362.88" Height="28.35" Border.Lines="All" Border.Width="2" Text="Accesories" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+        <TextObject Name="Text16" Left="380.65" Top="381.78" Width="362.88" Height="28.35" Border.Lines="All" Border.Width="2" Text="Server Only" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+        <TableObject Name="Table7" Left="9.45" Top="413.91" Width="362.88" Height="75.6" Border.Lines="All" Border.Width="2" PrintOnParent="true">
+          <TableColumn Name="Column16" Width="139.86"/>
+          <TableColumn Name="Column17" Width="83.16"/>
+          <TableColumn Name="Column18" Width="139.86"/>
+          <TableRow Name="Row30">
+            <TableCell Name="Cell89" Border.Lines="All" Text="Printer" VertAlign="Center" WordWrap="false" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell90" Border.Lines="All" Text="				" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell91" Border.Lines="All" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row31">
+            <TableCell Name="Cell92" Border.Lines="All" Text="Scanner" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell93" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell94" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row32">
+            <TableCell Name="Cell95" Border.Lines="All" Text="UPS/AVR&#13;&#10;" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell96" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell97" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row33">
+            <TableCell Name="Cell98" Border.Lines="All" Text="Modem" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell99" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell100" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+        </TableObject>
+        <TableObject Name="Table8" Left="380.65" Top="413.91" Width="362.88" Height="75.6" Border.Lines="All" Border.Width="2" PrintOnParent="true">
+          <TableColumn Name="Column19" Width="139.86"/>
+          <TableColumn Name="Column20" Width="83.16"/>
+          <TableColumn Name="Column21" Width="139.86"/>
+          <TableRow Name="Row41" Height="37.8">
+            <TableCell Name="Cell122" Border.Lines="All" Text="Check updated Anti-virus Software" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell123" Border.Lines="All" Text="				" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell124" Border.Lines="All" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row42">
+            <TableCell Name="Cell125" Border.Lines="All" Text="Check back-up Drive" Font="Times New Roman, 9pt, style=Bold"/>
+            <TableCell Name="Cell126" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell127" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row43">
+            <TableCell Name="Cell128" Border.Lines="All" Text="Check back-up Software" Font="Times New Roman, 8pt, style=Bold"/>
+            <TableCell Name="Cell129" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell130" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+        </TableObject>
+        <TextObject Name="Text17" Left="9.45" Top="493.29" Width="733.32" Height="28.35" Border.Lines="All" Border.Width="2" Text="		     LAN Devices" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+        <TableObject Name="Table9" Left="9.45" Top="525.42" Width="362.88" Height="94.5" Border.Lines="All" Border.Width="2" PrintOnParent="true">
+          <TableColumn Name="Column22" Width="139.86"/>
+          <TableColumn Name="Column23" Width="83.16"/>
+          <TableColumn Name="Column24" Width="139.86"/>
+          <TableRow Name="Row44">
+            <TableCell Name="Cell131" Border.Lines="All" Text="Switch/HUB" VertAlign="Center" WordWrap="false" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell132" Border.Lines="All" Text="				" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell133" Border.Lines="All" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row45">
+            <TableCell Name="Cell134" Border.Lines="All" Text="Router" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell135" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell136" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row46">
+            <TableCell Name="Cell137" Border.Lines="All" Text="Firewall Devices" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell138" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell139" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row47">
+            <TableCell Name="Cell140" Border.Lines="All" Text="Cabinet" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell141" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell142" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row48">
+            <TableCell Name="Cell143" Border.Lines="All" Text="Printer Server" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell144" Border.Lines="All" Font="Arial, 10pt"/>
+            <TableCell Name="Cell145" Border.Lines="All" Font="Arial, 10pt"/>
+          </TableRow>
+        </TableObject>
+        <TableObject Name="Table10" Left="380.65" Top="525.42" Width="362.88" Height="94.5" Border.Lines="All" Border.Width="2" PrintOnParent="true">
+          <TableColumn Name="Column25" Width="139.86"/>
+          <TableColumn Name="Column26" Width="83.16"/>
+          <TableColumn Name="Column27" Width="139.86"/>
+          <TableRow Name="Row49">
+            <TableCell Name="Cell146" Border.Lines="All" Text="Switch/HUB" VertAlign="Center" WordWrap="false" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell147" Border.Lines="All" Text="				" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell148" Border.Lines="All" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row50">
+            <TableCell Name="Cell149" Border.Lines="All" Text="Router" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell150" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell151" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row51">
+            <TableCell Name="Cell152" Border.Lines="All" Text="Firewall Devices" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell153" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell154" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row52">
+            <TableCell Name="Cell155" Border.Lines="All" Text="Cabinet" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell156" Border.Lines="All" Font="Times New Roman, 10pt"/>
+            <TableCell Name="Cell157" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row53">
+            <TableCell Name="Cell158" Border.Lines="All" Text="Printer Server" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell159" Border.Lines="All" Font="Arial, 10pt"/>
+            <TableCell Name="Cell160" Border.Lines="All" Font="Arial, 10pt"/>
+          </TableRow>
+        </TableObject>
+        <TableObject Name="Table11" Left="9.45" Top="623.7" Width="362.88" Height="28.35" Border.Lines="All" Border.Width="2">
+          <TableColumn Name="Column28" Width="200.34"/>
+          <TableColumn Name="Column30" Width="162.54"/>
+          <TableRow Name="Row54" Height="28.35">
+            <TableCell Name="Cell161" Border.Lines="All" Text="Hardware Process Summary" HorzAlign="Center" VertAlign="Center" WordWrap="false" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell163" Text="Status (check if OK)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+          </TableRow>
+        </TableObject>
+        <TableObject Name="Table12" Left="380.65" Top="623.7" Width="362.88" Height="28.35" Border.Lines="All" Border.Width="2">
+          <TableColumn Name="Column31" Width="200.34"/>
+          <TableColumn Name="Column32" Width="162.54"/>
+          <TableRow Name="Row55" Height="28.35">
+            <TableCell Name="Cell164" Border.Lines="All" Text="Software Process Summary" HorzAlign="Center" VertAlign="Center" WordWrap="false" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell165" Text="Status (check if OK)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+          </TableRow>
+        </TableObject>
+        <TableObject Name="Table13" Left="9.45" Top="657.72" Width="362.88" Height="113.4" Border.Lines="All" Border.Width="2" PrintOnParent="true">
+          <TableColumn Name="Column33" Width="200.34"/>
+          <TableColumn Name="Column34" Width="162.54"/>
+          <TableRow Name="Row56">
+            <TableCell Name="Cell166" Border.Lines="All" Text="Power turned-on" VertAlign="Center" WordWrap="false" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell167" Border.Lines="All" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+          </TableRow>
+          <TableRow Name="Row58">
+            <TableCell Name="Cell170" Border.Lines="All" Text="Front panel light on" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell171" Border.Lines="All" Font="Arial, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row59">
+            <TableCell Name="Cell172" Border.Lines="All" Text="All components reset" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell173" Border.Lines="All" Font="Arial, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row60">
+            <TableCell Name="Cell174" Border.Lines="All" Text="Post beep start, memory count" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell175" Border.Lines="All" Font="Arial, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row61">
+            <TableCell Name="Cell176" Border.Lines="All" Text="Hard Disk initialize" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell177" Border.Lines="All" Font="Arial, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row66">
+            <TableCell Name="Cell186" Border.Lines="All" Text="Boot Drive found OS loaded" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell187" Border.Lines="All" Font="Times New Roman, 10pt"/>
+          </TableRow>
+        </TableObject>
+        <TableObject Name="Table14" Left="380.65" Top="657.72" Width="362.88" Height="113.4" Border.Lines="All" Border.Width="2">
+          <TableColumn Name="Column35" Width="200.34"/>
+          <TableColumn Name="Column36" Width="162.54"/>
+          <TableRow Name="Row57">
+            <TableCell Name="Cell168" Border.Lines="All" Text="System Boot" VertAlign="Center" WordWrap="false" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell169" Border.Lines="All" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+          </TableRow>
+          <TableRow Name="Row62">
+            <TableCell Name="Cell178" Border.Lines="All" Text="Can Log on to network" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell179" Border.Lines="All" Font="Arial, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row63">
+            <TableCell Name="Cell180" Border.Lines="All" Text="Can Access Network" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell181" Border.Lines="All" Font="Arial, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row64">
+            <TableCell Name="Cell182" Border.Lines="All" Text="Can Start an Application" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell183" Border.Lines="All" Font="Arial, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row65">
+            <TableCell Name="Cell184" Border.Lines="All" Text="Can Read/Write File to HD" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell185" Border.Lines="All" Font="Arial, 10pt"/>
+          </TableRow>
+          <TableRow Name="Row67">
+            <TableCell Name="Cell188" Border.Lines="All" Font="Times New Roman, 10pt, style=Bold"/>
+            <TableCell Name="Cell189" Border.Lines="All" Font="Arial, 10pt"/>
+          </TableRow>
+        </TableObject>
+        <TableObject Name="Table15" Left="9.45" Top="774.9" Width="362.88" Height="66.15" Border.Lines="All" Border.Width="2" PrintOnParent="true">
+          <TableColumn Name="Column37" Width="362.88"/>
+          <TableRow Name="Row68" Height="28.35">
+            <TableCell Name="Cell190" Border.Lines="All" Text="Observatio, Computer Location, or Environment" VertAlign="Center" WordWrap="false" Font="Times New Roman, 10pt, style=Bold"/>
+          </TableRow>
+          <TableRow Name="Row69">
+            <TableCell Name="Cell192" Border.Lines="All" Font="Times New Roman, 10pt, style=Bold"/>
+          </TableRow>
+          <TableRow Name="Row70">
+            <TableCell Name="Cell194" Border.Lines="All" Font="Times New Roman, 10pt, style=Bold"/>
+          </TableRow>
+        </TableObject>
+        <TableObject Name="Table16" Left="380.65" Top="774.9" Width="362.88" Height="66.15" Border.Lines="All" Border.Width="2" PrintOnParent="true">
+          <TableColumn Name="Column38" Width="362.88"/>
+          <TableRow Name="Row71" Height="28.35">
+            <TableCell Name="Cell195" Border.Lines="All" Text="User Information" VertAlign="Center" WordWrap="false" Font="Times New Roman, 10pt, style=Bold"/>
+          </TableRow>
+          <TableRow Name="Row72">
+            <TableCell Name="Cell196" Border.Lines="All" Font="Times New Roman, 10pt, style=Bold"/>
+          </TableRow>
+          <TableRow Name="Row73">
+            <TableCell Name="Cell197" Border.Lines="All" Font="Times New Roman, 10pt, style=Bold"/>
+          </TableRow>
+        </TableObject>
+        <TableObject Name="Table17" Left="9.45" Top="845.59" Width="733.32" Height="66.15" Border.Lines="All" Border.Width="2" PrintOnParent="true">
+          <TableColumn Name="Column39" Width="733.32"/>
+          <TableRow Name="Row74" Height="28.35">
+            <TableCell Name="Cell198" Border.Lines="All" Text="Recommendation" VertAlign="Center" WordWrap="false" Font="Times New Roman, 10pt, style=Bold"/>
+          </TableRow>
+          <TableRow Name="Row75">
+            <TableCell Name="Cell199" Border.Lines="All" Font="Times New Roman, 10pt, style=Bold"/>
+          </TableRow>
+          <TableRow Name="Row76">
+            <TableCell Name="Cell200" Border.Lines="All" Font="Times New Roman, 10pt, style=Bold"/>
+          </TableRow>
+        </TableObject>
+        <TextObject Name="Text21" Left="9.45" Top="9.45" Width="241.92" Height="28.35" Border.Lines="All" Border.Width="2" BeforePrintEvent="Text21_AFTERPrint" Text="Plant: [DATACSV.12_部門OAリーダ/Department OA Leader/资产负责人ID]" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+        <TextObject Name="Text5" Left="501.23" Top="9.45" Width="241.92" Height="28.35" Border.Lines="All" Border.Width="2" Text="Date: 	[Date]" Format="Custom" Format.Format="dd-MMM-yyyy" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+        <TextObject Name="Text23" Left="255.15" Top="9.45" Width="241.92" Height="28.35" Border.Lines="All" Border.Width="2" Text="Section: [DATACSV.13_部門OAリーダ所属部署/Department OA Leader belonging section/资产负责人部门代码]" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+        <ShapeObject Name="Shape1" Left="7.56" Top="914.76" Width="241.92" Height="54.81" Border.Width="2"/>
+        <ShapeObject Name="Shape2" Left="255.15" Top="914.76" Width="241.92" Height="54.81" Border.Width="2"/>
+        <ShapeObject Name="Shape3" Left="502.74" Top="914.76" Width="241.92" Height="54.81" Border.Width="2"/>
+        <TextObject Name="Text24" Left="9.45" Top="914.76" Width="94.5" Height="18.9" Text="Checked by:" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+        <TextObject Name="Text25" Left="255.15" Top="914.76" Width="94.5" Height="18.9" Text="Verified by:" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+        <TextObject Name="Text26" Left="502.74" Top="914.76" Width="94.5" Height="18.9" Text="Date:" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+        <TextObject Name="Text27" Left="18.9" Top="943.11" Width="207.9" Height="18.9" Border.Lines="Top" Border.TopLine.Width="2" Text="Checked by:" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+        <TextObject Name="Text28" Left="274.05" Top="943.11" Width="207.9" Height="18.9" Border.Lines="Top" Border.TopLine.Width="2" Text="Checked by:" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      </ContainerObject>
+      <Sort>
+        <Sort Expression="[DATACSV.13_部門OAリーダ所属部署/Department OA Leader belonging section/资产负责人部门代码]"/>
+      </Sort>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="1066.4" Width="756" Height="18.9">
+      <TextObject Name="Text3" Width="179.55" Height="18.9" Text="Retention Period Five (5) Years." VertAlign="Center" Font="Times New Roman, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text4" Left="633.15" Width="122.85" Height="18.9" Text="Page [Page#] of [TotalPages#]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold, Italic"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>
